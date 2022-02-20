@@ -1,0 +1,44 @@
+@import '@/assets/scss/_variables.scss';
+#footer{
+    width: 100%;
+    background-color: #212024;
+    padding: 80px;
+    font-family: 'Inconsolata', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width:961px){
+        padding: 50px 0px 50px 0px;
+    }
+    .container{
+        width: $globalwidth;
+        @media (max-width:961px){
+            width: 100%;
+        }
+        .footertext{
+            color: white;
+            text-align: center;
+        }
+    }
+    .totop{
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+        background-color: #947668;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid white;
+        cursor: pointer;
+        @media (max-width:961px){
+            right: 20px;
+            bottom: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+        }
+    }
+}

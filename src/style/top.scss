@@ -1,0 +1,277 @@
+@import '@/assets/scss/_variables.scss';
+html{
+    scroll-behavior: smooth;
+}
+#top{
+    .textbox{
+        color: white;
+        background: linear-gradient(to right, #4d4d4d 0, rgb(255, 255, 255) 70%, #4d4d4d 20%);
+        background-position: 0;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 10s infinite linear;
+        animation-fill-mode: forwards;
+        -webkit-text-size-adjust: none;
+        font-weight: bolder;
+        font-size: 35px;
+        text-decoration: none;
+        white-space: nowrap;
+        @keyframes shine{
+            0%{
+                background-position: 0px;
+            }
+            60%{
+                background-position: 180px;
+            }
+            100%{
+                background-position: 0px;
+            }
+        }
+    }
+    #pctop{
+        @media (max-width:961px){
+            display: none;
+        }
+        display : flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url('../assets/img/top-background.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: calc(100% + 50px);
+        height: calc( 100vh - 0px );
+        min-height: 500px;
+        font-family: 'Inconsolata', monospace;
+        .container{
+            width: $globalwidth;
+            padding-top: 64px;
+            display: flex;
+            flex-wrap: wrap;
+            .nav{
+                background-color: #212024;
+            }
+            .btnlink{
+                font-size: 18px;
+            }
+            .left{
+                width: 30%;
+                display: flex;
+                justify-content: center;
+                color: white;
+                .img{
+                    width: 250px;
+                    height: 250px;
+                    border-radius: 250px;
+                    border:1px solid rgba(255,255,255,0.7);
+                    box-shadow: 0 5px 10px rgba(9,0,0,0.5);
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+                .name{
+                    font-size: 35px;
+                    font-weight: bold;
+                    text-align: center;
+                    margin-top: 10px;
+                    opacity: 0.8;
+                }
+                .jobtitle{
+                    font-size: 24px;
+                    font-weight: bold;
+                    text-align: center;
+                    opacity: 0.8;
+                }
+            }
+            .right{
+                width: 70%;
+                color: white;
+                .upper{
+                    position: relative;
+                    background: rgba(0, 0, 0, 0.5);
+                    border:1px solid rgba(255,255,255,0.7);
+                    box-shadow: 0 5px 10px rgba(9,0,0,0.5);
+                    border-radius: 10px;
+                    padding: 15px;
+                    overflow: hidden;
+                    z-index: 0;
+    
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        z-index: -2;
+                        left: -50%;
+                        top: -50%;
+                        width: 200%;
+                        height: 200%;
+                        background-color: transparent;
+                        background-repeat: no-repeat;
+                        background-size: 50% 50%, 50% 50%;
+                        background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+                        background-image: linear-gradient(rgba(0,0,0,0.4), transparent), linear-gradient(rgba(0,0,0,0.4), transparent), linear-gradient(rgba(0,0,0,0.4), transparent), linear-gradient(rgba(0,0,0,0.4), transparent);
+                        transform: rotate(120deg);
+                    }
+                    
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        z-index: -1;
+                        left: 6px;
+                        top: 6px;
+                        width: calc(100% - 5px);
+                        height: calc(100% - 5px);
+                        background: transparent;
+                        border-radius: 5px;
+                    }
+    
+                    .titletext{
+                        font-size: 40px;
+                        letter-spacing: 10px;
+                        font-weight: 500;
+                        margin-bottom: 10px;
+                    }
+                    .para{
+                        font-size: 22px;
+                        line-height: 30px;
+                    }
+                    a{
+                        color: gold;
+                        text-decoration: none;
+                    }
+                    .lower{
+                        display:flex;
+                        flex-wrap: wrap;
+                        margin-top: 30px;
+                        .child{
+                            width: 50%;
+                            .titletext{
+                                font-size: 24px;
+                                letter-spacing: 6px;
+                            }
+                            .chip{
+                                font-size: 16px;
+                                opacity: 0.7;
+                                font-weight:bold;
+                                background-color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+        .nav{
+            display: flex;
+            justify-content: center;
+            .v-toolbar__content{
+                width: $globalwidth;
+            }
+            .titletext{
+                font-weight: bold;
+                font-size: 22px;
+            }
+        }
+    
+    }
+    #phonetop{
+        height: 450px;
+        background-image: url('../assets/img/top-background.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: 'Inconsolata', monospace;
+        .textbox{
+            font-size: 25px;
+        }
+        .drawer{
+            background-color: #947668;
+            .navlist{
+                height: calc( 100vh - 0px );
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .draweractive{
+                color: white;
+            }
+            .navbox{
+                text-align: center;
+                margin: 30px 0px;
+                .navtext{
+                    font-size: 19px;
+                    font-weight: bold;
+                    letter-spacing: 10px;
+                }
+            }
+        }
+        .imgbox{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .img{
+                width: 180px;
+                height: 180px;
+                border-radius: 180px;
+                border:1px solid rgba(255,255,255,0.7);
+                box-shadow: 0 5px 10px rgba(9,0,0,0.5);
+                background-color: rgba(0, 0, 0, 0.5);
+                margin-top: 120px;
+            }
+            .name{
+                text-align: center;
+                color: white;
+                font-size: 25px;
+                font-weight: bold;
+                margin-top: 15px;
+            }
+            .jobtitle{
+                text-align: center;
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+    }
+    #phonebio{
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        font-family: 'Inconsolata', monospace;
+        padding: 40px 2px;
+        .ftitle{
+            font-size: $titlesize;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .para{
+            font-size: 20px;
+            line-height: 30px;
+            margin: 20px 15px;
+            text-align: center;
+        }
+        a{
+            color: gold;
+            text-decoration: none;
+        }
+        .titletext{
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: 10px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .chipgp{
+            margin-top: 10px;
+            padding: 0px 15px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            .chip{
+                font-size: 16px;
+                opacity: 0.7;
+                font-weight:bold;
+                background-color: white;
+            }
+        }
+    }
+}

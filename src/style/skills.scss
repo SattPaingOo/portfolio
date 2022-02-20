@@ -1,0 +1,75 @@
+@import '@/assets/scss/_variables.scss';
+#skills{
+    width: 100%;
+    background-color: #947668;
+    padding: 80px;
+    font-family: 'Inconsolata', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width:961px){
+        padding: 50px 0px 0px 0px;
+    }
+    .container{
+        width: $globalwidth;
+        @media (max-width:961px){
+            width: 100%;
+        }
+        .ftitle{
+            font-size: $titlesize;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+        }
+        .skillscard{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            @media (max-width:961px){
+                margin-top: 20px;
+                margin-bottom: 40px;
+            }
+            a{
+                text-decoration: none;
+            }
+            .skillicon{
+                margin-bottom: 10px;
+                cursor: pointer;
+            }
+            .skillicon:hover{
+                animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+                transform: translate3d(0, 0, 0);
+                @keyframes shake {
+                    10%, 90% {
+                      transform: translate3d(-1px, 0, 0);
+                    }
+                    
+                    20%, 80% {
+                      transform: translate3d(2px, 0, 0);
+                    }
+                  
+                    30%, 50%, 70% {
+                      transform: translate3d(-4px, 0, 0);
+                    }
+                  
+                    40%, 60% {
+                      transform: translate3d(4px, 0, 0);
+                    }
+                }    
+            }
+            .skilltitle{
+                font-size: 25px;
+                font-weight: bolder;
+            }
+            .subskilltitle{
+                font-size: 18px;
+                font-weight: 600;
+            }
+        }
+    }
+}
