@@ -29,9 +29,6 @@ html{
         }
     }
     #pctop{
-        @media (max-width:961px){
-            display: none;
-        }
         display : flex;
         justify-content: center;
         align-items: center;
@@ -40,8 +37,11 @@ html{
         background-repeat: no-repeat;
         background-size: calc(100% + 50px);
         height: calc( 100vh - 0px );
-        min-height: 500px;
+        min-height: 800px;
         font-family: 'Inconsolata', monospace;
+        @media (max-width:1350px){
+            display: none;
+        }
         .container{
             width: $globalwidth;
             padding-top: 64px;
@@ -128,7 +128,7 @@ html{
                         margin-bottom: 10px;
                     }
                     .para{
-                        font-size: 22px;
+                        font-size: 20px;
                         line-height: 30px;
                     }
                     a{
@@ -138,7 +138,7 @@ html{
                     .lower{
                         display:flex;
                         flex-wrap: wrap;
-                        margin-top: 30px;
+                        margin-top: 20px;
                         .child{
                             width: 50%;
                             .titletext{
@@ -177,6 +177,9 @@ html{
         background-repeat: no-repeat;
         background-size: cover;
         font-family: 'Inconsolata', monospace;
+        @media (min-width:1350px){
+            display: none;
+        }
         .textbox{
             font-size: 25px;
         }
@@ -234,6 +237,9 @@ html{
         color: white;
         font-family: 'Inconsolata', monospace;
         padding: 40px 2px;
+        @media (min-width:1350px){
+            display: none;
+        }
         .ftitle{
             font-size: $titlesize;
             text-align: center;

@@ -3,7 +3,7 @@
         <div class="container">
             <div class="ftitle">Experience</div>
             <v-timeline align-top :dense="$vuetify.breakpoint.smAndDown">
-                <v-timeline-item color="#947668" fill-dot>
+                <v-timeline-item color="#947668" fill-dot class="reveal">
                     <v-card color="#947668" dark hover>
                         <v-card-title>Full Stack Developer</v-card-title>
                         <v-card-subtitle style="font-size:18px">Shingenki Company</v-card-subtitle>
@@ -17,7 +17,7 @@
                         </v-card-text>
                     </v-card>
                 </v-timeline-item>
-                <v-timeline-item color="#947668" fill-dot>
+                <v-timeline-item color="#947668" fill-dot class="reveal">
                     <v-card color="#947668" dark hover>
                         <v-card-title>Student</v-card-title>
                         <v-card-subtitle style="font-size:18px">Metro IT and japanese Language Center</v-card-subtitle>

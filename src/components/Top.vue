@@ -1,6 +1,6 @@
 <template>
   <div id="top">
-      <div id="pctop" v-if="!isMobile()">
+      <div id="pctop">
         <div class="container">
           <v-app-bar fixed elevation="5" class="nav" dark>
             <v-toolbar-title class="textbox">Satt Paing</v-toolbar-title>
@@ -63,7 +63,7 @@
           </div>
         </div>
       </div>
-      <div id="phonetop" v-if="isMobile()">
+      <div id="phonetop">
         <v-app-bar fixed color="#212024" dark>
           <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
           <v-toolbar-title class="textbox">Satt Paing</v-toolbar-title>
@@ -100,7 +100,7 @@
           </div>
         </div>
       </div>
-      <div id="phonebio" v-if="isMobile()">
+      <div id="phonebio">
           <div class="ftitle">Biography</div>
           <p class="para">
             Hi , I am Satt Paing , Currenty working as a Web Developer at
