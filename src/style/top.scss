@@ -150,10 +150,10 @@ html{
                     border:1px solid rgba(255,255,255,0.7);
                     box-shadow: 0 5px 10px rgba(9,0,0,0.5);
                     border-radius: 10px;
-                    padding: 15px;
+                    padding: 12px;
                     overflow: hidden;
                     z-index: 0;
-    
+
                     &::before {
                         content: '';
                         position: absolute;
@@ -181,17 +181,254 @@ html{
                         background: transparent;
                         border-radius: 5px;
                     }
+
+                    // Responsive adjustments for biography grid
+                    @media (max-height: 800px) {
+                        padding: 10px;
+                        
+                        .biography-grid {
+                            grid-template-columns: 1fr;
+                            gap: 6px;
+                            margin-bottom: 12px;
+                            
+                            .bio-card {
+                                padding: 8px;
+                                
+                                .card-header {
+                                    margin-bottom: 4px;
+                                    
+                                    .card-title {
+                                        font-size: 13px;
+                                    }
+                                }
+                                
+                                .card-content {
+                                    font-size: 11px;
+                                    line-height: 15px;
+                                }
+                            }
+                        }
+                        
+                        .bottom-section {
+                            .portfolio-highlight {
+                                padding: 6px 10px;
+                                margin-bottom: 10px;
+                            }
+                            
+                            .info-row {
+                                flex-direction: column;
+                                gap: 8px;
+                                
+                                .info-section {
+                                    .info-title {
+                                        font-size: 14px;
+                                        margin-bottom: 6px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    @media (max-height: 700px) {
+                        padding: 8px;
+                        
+                        .titletext {
+                            font-size: 22px !important;
+                            margin-bottom: 8px !important;
+                        }
+                        
+                        .intro-para {
+                            font-size: 13px !important;
+                            line-height: 20px !important;
+                            margin-bottom: 12px !important;
+                        }
+                    }
     
                     .titletext{
-                        font-size: 27px;
-                        letter-spacing: 3px;
+                        font-size: 24px;
+                        letter-spacing: 2px;
                         font-weight: 500;
-                        margin-bottom: 10px;
+                        margin-bottom: 12px;
+                    }
+                    .intro-para{
+                        font-size: 14px;
+                        line-height: 22px;
+                        margin-bottom: 16px;
+                        color: rgba(255, 255, 255, 0.9);
                     }
                     .para{
                         font-size: 16px;
                         line-height: 30px;
                     }
+
+                    // Compact Biography Grid
+                    .biography-grid {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 10px;
+                        margin-bottom: 16px;
+
+                        .bio-card {
+                            background: rgba(255, 255, 255, 0.05);
+                            border-radius: 6px;
+                            padding: 10px;
+                            border-left: 2px solid #FF6A4D;
+                            transition: all 0.3s ease;
+
+                            &:hover {
+                                background: rgba(255, 255, 255, 0.08);
+                                transform: translateY(-1px);
+                            }
+
+                            .card-header {
+                                display: flex;
+                                align-items: center;
+                                gap: 6px;
+                                margin-bottom: 5px;
+
+                                .card-title {
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    color: rgba(255, 255, 255, 0.95);
+                                }
+                            }
+
+                            .card-content {
+                                font-size: 11px;
+                                line-height: 16px;
+                                color: rgba(255, 255, 255, 0.8);
+                                margin: 0;
+                            }
+                        }
+                    }
+
+                    // Compact Bottom Section
+                    .bottom-section {
+                        .portfolio-highlight {
+                            background: rgba(255, 106, 77, 0.1);
+                            border: 1px solid #FF6A4D;
+                            border-radius: 6px;
+                            padding: 6px 10px;
+                            margin-bottom: 12px;
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+
+                            .portfolio-link {
+                                color: #FF6A4D !important;
+                                text-decoration: none;
+                                font-weight: 600;
+                                font-size: 12px;
+                                
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+
+                        .info-row {
+                            display: flex;
+                            gap: 16px;
+
+                            .info-section {
+                                flex: 1;
+
+                                .info-title {
+                                    font-size: 14px;
+                                    font-weight: 600;
+                                    margin: 0 0 6px 0;
+                                    color: rgba(255, 255, 255, 0.95);
+                                }
+
+                                .compact-chips {
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    gap: 3px;
+
+                                    .education-chip {
+                                        background-color: rgba(255, 255, 255, 0.9) !important;
+                                        color: #303030 !important;
+                                        font-weight: 600 !important;
+                                        font-size: 9px !important;
+                                        height: 20px !important;
+                                    }
+
+                                    .interest-chip {
+                                        background-color: rgba(255, 255, 255, 0.1) !important;
+                                        color: rgba(255, 255, 255, 0.9) !important;
+                                        border: 1px solid rgba(255, 255, 255, 0.3);
+                                        font-size: 9px !important;
+                                        height: 20px !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Legacy Biography Sections (keep for fallback)
+                    .biography-sections {
+                        margin: 25px 0;
+                        
+                        .bio-section {
+                            margin-bottom: 20px;
+                            padding: 15px;
+                            background: rgba(255, 255, 255, 0.05);
+                            border-radius: 8px;
+                            border-left: 3px solid #FF6A4D;
+                            transition: all 0.3s ease;
+
+                            &:hover {
+                                background: rgba(255, 255, 255, 0.08);
+                                transform: translateX(5px);
+                            }
+
+                            .section-header {
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                margin-bottom: 8px;
+
+                                .section-title {
+                                    font-size: 18px;
+                                    font-weight: 600;
+                                    margin: 0;
+                                    color: rgba(255, 255, 255, 0.95);
+                                }
+                            }
+
+                            .section-content {
+                                font-size: 15px;
+                                line-height: 24px;
+                                color: rgba(255, 255, 255, 0.8);
+                                margin: 0;
+                                margin-left: 30px;
+                            }
+                        }
+                    }
+
+                    // Legacy Portfolio Highlight
+                    .portfolio-highlight {
+                        background: rgba(255, 106, 77, 0.1);
+                        border: 1px solid #FF6A4D;
+                        border-radius: 8px;
+                        padding: 12px 15px;
+                        margin: 20px 0;
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 5px;
+
+                        .portfolio-link {
+                            color: #FF6A4D !important;
+                            text-decoration: none;
+                            font-weight: 600;
+                            
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+
                     a{
                         color: gold;
                         text-decoration: none;
@@ -206,6 +443,65 @@ html{
                                 font-size: 21px;
                                 letter-spacing: 3px;
                             }
+
+                            // Education Grid
+                            .education-grid {
+                                margin-bottom: 15px;
+
+                                .education-item {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 5px;
+                                    margin-bottom: 10px;
+
+                                    .education-chip {
+                                        background-color: rgba(255, 255, 255, 0.9) !important;
+                                        color: #303030 !important;
+                                        font-weight: 600 !important;
+                                        align-self: flex-start;
+                                    }
+
+                                    .degree-text {
+                                        font-size: 13px;
+                                        color: rgba(255, 255, 255, 0.7);
+                                        margin-left: 8px;
+                                    }
+                                }
+                            }
+
+                            // Certifications
+                            .certifications {
+                                display: flex;
+                                flex-wrap: wrap;
+                                gap: 8px;
+                                margin-top: 10px;
+
+                                .cert-chip {
+                                    border-color: #FF6A4D !important;
+                                    color: #FF6A4D !important;
+                                    background-color: rgba(255, 106, 77, 0.1) !important;
+                                }
+                            }
+
+                            // Interests Grid
+                            .interests-grid {
+                                display: flex;
+                                flex-wrap: wrap;
+                                gap: 8px;
+
+                                .interest-chip {
+                                    background-color: rgba(255, 255, 255, 0.1) !important;
+                                    color: rgba(255, 255, 255, 0.9) !important;
+                                    border: 1px solid rgba(255, 255, 255, 0.3);
+                                    transition: all 0.3s ease;
+
+                                    &:hover {
+                                        background-color: rgba(255, 255, 255, 0.2) !important;
+                                        transform: translateY(-2px);
+                                    }
+                                }
+                            }
+
                             .chip{
                                 font-size: 14px;
                                 opacity: 0.7;
@@ -342,12 +638,123 @@ html{
             margin-left: 10px;
             margin-right: 10px;
         }
+        .intro-para{
+            font-size: 18px;
+            line-height: 28px;
+            margin: 20px 15px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
         .para{
             font-size: 20px;
             line-height: 30px;
             margin: 20px 15px;
             text-align: center;
         }
+
+        // Mobile Biography Sections
+        .mobile-biography {
+            margin: 25px 15px;
+
+            .mobile-bio-section {
+                margin-bottom: 20px;
+                padding: 15px;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                border-left: 3px solid #FF6A4D;
+
+                .mobile-section-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    margin-bottom: 8px;
+
+                    .mobile-section-title {
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin: 0;
+                        color: rgba(255, 255, 255, 0.95);
+                    }
+                }
+
+                .mobile-section-content {
+                    font-size: 14px;
+                    line-height: 22px;
+                    color: rgba(255, 255, 255, 0.8);
+                    margin: 0;
+                    margin-left: 26px;
+                }
+            }
+        }
+
+        // Mobile Portfolio Highlight
+        .mobile-portfolio-highlight {
+            background: rgba(255, 106, 77, 0.1);
+            border: 1px solid #FF6A4D;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin: 20px 15px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            font-size: 14px;
+
+            .portfolio-link {
+                color: #FF6A4D !important;
+                text-decoration: none;
+                font-weight: 600;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        // Mobile Education
+        .mobile-education {
+            margin: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .mobile-education-item {
+                .mobile-education-chip {
+                    background-color: rgba(255, 255, 255, 0.9) !important;
+                    color: #303030 !important;
+                    font-weight: 600 !important;
+                }
+            }
+        }
+
+        // Mobile Certifications
+        .mobile-certifications {
+            margin: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            .mobile-cert-chip {
+                border-color: #FF6A4D !important;
+                color: #FF6A4D !important;
+                background-color: rgba(255, 106, 77, 0.1) !important;
+            }
+        }
+
+        // Mobile Interests
+        .mobile-interests {
+            margin: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            .mobile-interest-chip {
+                background-color: rgba(255, 255, 255, 0.1) !important;
+                color: rgba(255, 255, 255, 0.9) !important;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+        }
+
         a{
             color: gold;
             text-decoration: none;

@@ -28,52 +28,68 @@
         <div class="right">
           <div class="upper">
             <div class="titletext">Biography</div>
-            <p class="para">
-              Hi , I am Satt Paing , Currenty working as a Web Developer at
-              Shingenki Company . I have a (Diploma of IT ) of
-              <a href="http://metro-myanmar.com/mic/" target="_blank"
-                >Metro IT & Japanese Language Center</a
+            <p class="intro-para">{{ biography.introduction }}</p>
+
+            <!-- Compact Biography Grid -->
+            <div class="biography-grid">
+              <div
+                v-for="section in biography.sections"
+                :key="section.title"
+                class="bio-card"
               >
-              and Certificate of
-              <a
-                href="https://itpec.org/about/itpec-common-exam.html"
-                target="_blank"
-                >ITPEC (FE)</a
-              >
-              .
-            </p>
-            <p class="para">
-              Senior Web Developer specializing in front end development.
-              Experienced with all stages of the development cycle for dynamic
-              web projects. Well-versed in numerous programming languages
-              including HTML5, Java , JavaScript , CSS , MySQL and knowledge in
-              Rest API . I am developing React and Vue Js
-              Framework.Well-Knowledge in Version Control System (Git) , Agile
-              Project Management Framework (Scrum,Board) . Now I trying to good
-              as 10x Programmer.
-            </p>
-            <div class="lower">
-              <div class="child">
-                <div class="titletext">Education</div>
-                <v-chip class="mt-1 mb-1 ml-1 mr-1 chip" label
-                  >Metro IT and Japanese Language Center
-                </v-chip>
-                <v-chip class="mt-1 mb-1 ml-1 mr-1 chip" label
-                  >BA : Dagon University Distance (History)
-                </v-chip>
+                <div class="card-header">
+                  <v-icon color="#FF6A4D" size="18">{{ section.icon }}</v-icon>
+                  <span class="card-title">{{ section.title }}</span>
+                </div>
+                <p class="card-content">{{ section.content }}</p>
               </div>
-              <div class="child">
-                <div class="titletext">Interest</div>
-                <v-chip class="mt-1 mb-1 ml-1 mr-1 chip" label
-                  >Learning new languages</v-chip
+            </div>
+
+            <!-- Compact Bottom Section -->
+            <div class="bottom-section">
+              <!-- 3D Portfolio Link -->
+              <div class="portfolio-highlight">
+                <v-icon color="#FF6A4D" size="16">mdi-cube-outline</v-icon>
+                <a
+                  :href="biography.portfolio3D.url"
+                  target="_blank"
+                  class="portfolio-link"
                 >
-                <v-chip class="mt-1 mb-1 ml-1 mr-1 chip" label
-                  >Listening Music</v-chip
-                >
-                <v-chip class="mt-1 mb-1 ml-1 mr-1 chip" label
-                  >Cloud Computing</v-chip
-                >
-                <v-chip class="mt-1 mb-1 ml-1 mr-1 chip" label>Reading</v-chip>
+                  {{ biography.portfolio3D.description }}
+                </a>
+              </div>
+
+              <!-- Education & Interests Row -->
+              <div class="info-row">
+                <div class="info-section">
+                  <h4 class="info-title">Education</h4>
+                  <div class="compact-chips">
+                    <v-chip
+                      v-for="edu in education"
+                      :key="edu.institution"
+                      class="education-chip"
+                      x-small
+                      label
+                    >
+                      {{ edu.institution }}
+                    </v-chip>
+                  </div>
+                </div>
+                <div class="info-section">
+                  <h4 class="info-title">Interests</h4>
+                  <div class="compact-chips">
+                    <v-chip
+                      v-for="interest in interests.slice(0, 4)"
+                      :key="interest.name"
+                      class="interest-chip"
+                      x-small
+                      label
+                    >
+                      <v-icon left x-small>{{ interest.icon }}</v-icon>
+                      {{ interest.name }}
+                    </v-chip>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -135,44 +151,74 @@
     </div>
     <div id="phonebio">
       <div class="ftitle">Biography</div>
-      <p class="para">
-        Hi , I am Satt Paing , Currenty working as a Web Developer at Shingenki
-        Company . I have a (Diploma of IT ) of
-        <a href="http://metro-myanmar.com/mic/" target="_blank"
-          >Metro IT & Japanese Language Center</a
+      <p class="intro-para">{{ biography.introduction }}</p>
+
+      <!-- Biography Sections for Mobile -->
+      <div class="mobile-biography">
+        <div
+          v-for="section in biography.sections"
+          :key="section.title"
+          class="mobile-bio-section"
         >
-        and Certificate of
-        <a href="https://itpec.org/about/itpec-common-exam.html" target="_blank"
-          >ITPEC (FE)</a
+          <div class="mobile-section-header">
+            <v-icon color="#FF6A4D" size="18">{{ section.icon }}</v-icon>
+            <h4 class="mobile-section-title">{{ section.title }}</h4>
+          </div>
+          <p class="mobile-section-content">{{ section.content }}</p>
+        </div>
+      </div>
+
+      <!-- 3D Portfolio Link Mobile -->
+      <div class="mobile-portfolio-highlight">
+        <v-icon color="#FF6A4D" class="mr-2">mdi-cube-outline</v-icon>
+        <span>{{ biography.portfolio3D.description }}: </span>
+        <a
+          :href="biography.portfolio3D.url"
+          target="_blank"
+          class="portfolio-link"
         >
-        .
-      </p>
-      <p class="para">
-        Senior Web Developer specializing in front end development. Experienced
-        with all stages of the development cycle for dynamic web projects.
-        Well-versed in numerous programming languages including HTML5, Java ,
-        JavaScript , CSS , MySQL and knowledge in Rest API . I am developing
-        React and Vue Js Framework.Well-Knowledge in Version Control System
-        (Git) , Agile Project Management Framework (Scrum,Board) . Now I trying
-        to good as 10x Programmer.
-      </p>
-      <div class="titletext">Education</div>
-      <div class="chipgp">
-        <v-chip class="mt-1 mb-1 ml-1 mr-1 chip" label
-          >Metro IT and Japanese Language Center
-        </v-chip>
-        <v-chip class="mt-1 mb-1 ml-1 mr-1 chip" label
-          >BA : Dagon University Distance (History)
+          {{ biography.portfolio3D.url }}
+        </a>
+      </div>
+
+      <div class="titletext">Education & Certifications</div>
+      <div class="mobile-education">
+        <div
+          class="mobile-education-item"
+          v-for="edu in education"
+          :key="edu.institution"
+        >
+          <v-chip class="mobile-education-chip" label small>
+            <v-icon left x-small>mdi-school</v-icon>
+            {{ edu.institution }}
+          </v-chip>
+        </div>
+      </div>
+      <div class="mobile-certifications">
+        <v-chip
+          v-for="cert in certifications"
+          :key="cert.name"
+          class="mobile-cert-chip"
+          x-small
+          outlined
+        >
+          <v-icon left x-small>mdi-certificate</v-icon>
+          {{ cert.name }}
         </v-chip>
       </div>
-      <div class="titletext">Interest</div>
-      <div class="chipgp">
-        <v-chip class="mt-1 mb-1 ml-1 mr-1 chip" label
-          >Learning new languages</v-chip
+
+      <div class="titletext">Interests</div>
+      <div class="mobile-interests">
+        <v-chip
+          v-for="interest in interests"
+          :key="interest.name"
+          class="mobile-interest-chip"
+          small
+          label
         >
-        <v-chip class="mt-1 mb-1 ml-1 mr-1 chip" label>Listening Music</v-chip>
-        <v-chip class="mt-1 mb-1 ml-1 mr-1 chip" label>Cloud Computing</v-chip>
-        <v-chip class="mt-1 mb-1 ml-1 mr-1 chip" label>Reading</v-chip>
+          <v-icon left x-small>{{ interest.icon }}</v-icon>
+          {{ interest.name }}
+        </v-chip>
       </div>
     </div>
   </div>
