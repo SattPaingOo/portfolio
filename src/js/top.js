@@ -117,7 +117,14 @@ export default {
       elmnt.scrollIntoView(true);
     },
     downloadfile() {
-      window.open("https://s3.amazonaws.com/sattpaing.tk/SattPaingOo_CV.docx");
+      // Create a link to download the resume file from public folder
+      const link = document.createElement("a");
+      link.href = "/resume.pdf";
+      link.download = "SattPaing_Resume.pdf";
+      link.target = "_blank";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     },
   },
 };

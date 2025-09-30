@@ -77,6 +77,28 @@ export default {
           githubUrl: "#",
           featured: true,
         },
+        {
+          id: 5,
+          title: "Job Agency Company Profile Website",
+          description:
+            "A comprehensive company profile website for a Japan work agency operating in Myanmar. This landing page showcases job opportunities, company services, and recruitment processes with modern UI/UX design built using Next.js framework.",
+          technologies: [
+            "Next.js",
+            "React",
+            "Figma",
+            "UI/UX Design",
+            "TypeScript",
+            "CSS3",
+            "Responsive Design",
+            "SEO Optimization",
+          ],
+          category: "Web Design",
+          status: "Completed",
+          image: require("@/assets/img/Project5.png"),
+          demoUrl: "https://shham-myanmar.com/",
+          githubUrl: "#",
+          featured: true,
+        },
       ],
     };
   },
