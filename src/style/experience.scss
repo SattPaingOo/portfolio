@@ -3,7 +3,7 @@
     width: 100%;
     background-color: white;
     padding: 80px;
-    font-family: 'Inconsolata', monospace;
+    font-family: $mainfont;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,9 +20,9 @@
             text-align: center;
             font-weight: bold;
             margin-bottom: 30px;
-            border-bottom: 1px solid #947668;
+            border-bottom: 1px solid #303030;
             padding-bottom: 10px;
-            color: #947668;
+            color: #303030;
         }
     }
 }

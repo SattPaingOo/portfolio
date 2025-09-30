@@ -1,9 +1,9 @@
 @import '@/assets/scss/_variables.scss';
 #footer{
     width: 100%;
-    background-color: #212024;
+    background-color: #303030;
     padding: 80px;
-    font-family: 'Inconsolata', monospace;
+    font-family: $mainfont;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +24,7 @@
         position: absolute;
         right: 30px;
         bottom: 30px;
-        background-color: #947668;
+        background-color: #303030;
         width: 50px;
         height: 50px;
         border-radius: 50px;

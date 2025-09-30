@@ -3,7 +3,7 @@
     width: 100%;
     background-color: white;
     padding: 80px;
-    font-family: 'Inconsolata', monospace;
+    font-family: $mainfont;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,9 +20,9 @@
             text-align: center;
             font-weight: bold;
             margin-bottom: 30px;
-            border-bottom: 1px solid #947668;
+            border-bottom: 1px solid #303030;
             padding-bottom: 10px;
-            color: #947668;
+            color: #303030;
         }
         .contactcard{
             display: flex;
@@ -31,19 +31,19 @@
             text-align: center;
             margin-top: 30px;
             margin-bottom: 50px;
-            color: #947668;
+            color: #303030;
             @media (max-width:961px){
                 margin-top: 20px;
                 margin-bottom: 40px;
             }
             a{
                 text-decoration: none;
-                color: #947668;
+                color: #303030;
             }
             .contacticon{
                 margin-bottom: 10px;
                 cursor: pointer;
-                color: #947668;
+                color: #303030;
             }
             .contacticon:hover{
                 animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;

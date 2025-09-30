@@ -1,9 +1,10 @@
 @import '@/assets/scss/_variables.scss';
 #skills{
     width: 100%;
-    background-color: #947668;
+    background-color: #303030;
+    color: #DADADA;
     padding: 80px;
-    font-family: 'Inconsolata', monospace;
+    font-family: $mainfont;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,6 +41,7 @@
             .skillicon{
                 margin-bottom: 10px;
                 cursor: pointer;
+                color: #FF6A4D;
             }
             .skillicon:hover{
                 animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
@@ -63,11 +65,11 @@
                 }    
             }
             .skilltitle{
-                font-size: 25px;
+                font-size: 21px;
                 font-weight: bolder;
             }
             .subskilltitle{
-                font-size: 18px;
+                font-size: 14px;
                 font-weight: 600;
             }
         }

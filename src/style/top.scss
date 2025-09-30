@@ -1,11 +1,17 @@
 @import '@/assets/scss/_variables.scss';
 html{
     scroll-behavior: smooth;
+    font-family: "JetBrains Mono", monospace;
 }
 #top{
+    a{
+        color: #FF6A4D !important;
+        text-decoration: none;
+    }
+
     .textbox{
         color: white;
-        background: linear-gradient(to right, #4d4d4d 0, rgb(255, 255, 255) 70%, #4d4d4d 20%);
+        background: linear-gradient(to right, #FF6A4D 0, #303030 70%, #FF6A4D 20%);
         background-position: 0;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -13,7 +19,7 @@ html{
         animation-fill-mode: forwards;
         -webkit-text-size-adjust: none;
         font-weight: bolder;
-        font-size: 35px;
+        font-size: 27px;
         text-decoration: none;
         white-space: nowrap;
         @keyframes shine{
@@ -38,7 +44,7 @@ html{
         background-size: calc(100% + 50px);
         height: calc( 100vh - 0px );
         min-height: 800px;
-        font-family: 'Inconsolata', monospace;
+        font-family: $mainfont;
         @media (max-width:1350px){
             display: none;
         }
@@ -48,10 +54,10 @@ html{
             display: flex;
             flex-wrap: wrap;
             .nav{
-                background-color: #212024;
+                background-color: #303030;
             }
             .btnlink{
-                font-size: 18px;
+                font-size: 16px;
             }
             .left{
                 width: 30%;
@@ -122,13 +128,13 @@ html{
                     }
     
                     .titletext{
-                        font-size: 40px;
-                        letter-spacing: 10px;
+                        font-size: 27px;
+                        letter-spacing: 3px;
                         font-weight: 500;
                         margin-bottom: 10px;
                     }
                     .para{
-                        font-size: 20px;
+                        font-size: 16px;
                         line-height: 30px;
                     }
                     a{
@@ -142,11 +148,11 @@ html{
                         .child{
                             width: 50%;
                             .titletext{
-                                font-size: 24px;
-                                letter-spacing: 6px;
+                                font-size: 21px;
+                                letter-spacing: 3px;
                             }
                             .chip{
-                                font-size: 16px;
+                                font-size: 14px;
                                 opacity: 0.7;
                                 font-weight:bold;
                                 background-color: white;
@@ -176,7 +182,7 @@ html{
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        font-family: 'Inconsolata', monospace;
+        font-family: $mainfont;
         @media (min-width:1350px){
             display: none;
         }
@@ -235,7 +241,7 @@ html{
     #phonebio{
         background-color: rgba(0, 0, 0, 0.9);
         color: white;
-        font-family: 'Inconsolata', monospace;
+        font-family: $mainfont;
         padding: 40px 2px;
         @media (min-width:1350px){
             display: none;

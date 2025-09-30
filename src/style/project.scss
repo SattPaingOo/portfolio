@@ -1,9 +1,9 @@
 @import '@/assets/scss/_variables.scss';
 #project{
     width: 100%;
-    background-color: #947668;
+    background-color: #303030;
     padding: 80px;
-    font-family: 'Inconsolata', monospace;
+    font-family: $mainfont;
     display: flex;
     align-items: center;
     justify-content: center;
