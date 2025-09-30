@@ -1,0 +1,351 @@
+// Performance and UX optimizations
+@import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/_animations.scss';
+
+// Performance optimizations
+* {
+  box-sizing: border-box;
+}
+
+// Optimize images and media
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+// Reduce motion for users who prefer it
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .reveal,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .v-card {
+    border: 2px solid #FF6A4D;
+  }
+  
+  .nav-btn {
+    border: 2px solid currentColor;
+  }
+}
+
+// Dark mode enhancements (already implemented but ensuring consistency)
+@media (prefers-color-scheme: dark) {
+  // Portfolio already uses dark theme, but ensuring proper contrast
+  :root {
+    --text-primary: rgba(255, 255, 255, 0.95);
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --background-primary: #303030;
+    --background-secondary: rgba(0, 0, 0, 0.5);
+    --accent-color: #FF6A4D;
+  }
+}
+
+// Touch-friendly interactions for mobile
+@media (hover: none) and (pointer: coarse) {
+  .nav-btn,
+  .v-btn,
+  .v-card {
+    min-height: 44px; // Minimum touch target
+    min-width: 44px;
+  }
+  
+  // Remove hover effects on touch devices
+  .v-card:hover {
+    transform: none;
+  }
+  
+  // Add tap feedback instead
+  .v-card:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+// Optimize scroll performance
+.app-main {
+  transform: translateZ(0); // Force hardware acceleration
+  will-change: scroll-position;
+}
+
+.section-wrapper {
+  contain: layout;
+  will-change: transform, opacity;
+}
+
+// Loading states and skeleton screens
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+  
+  .loading-header {
+    @include shimmer-loading;
+    height: 40px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .loading-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    
+    .loading-card {
+      @include shimmer-loading;
+      height: 200px;
+      border-radius: 15px;
+    }
+  }
+}
+
+// Error states with retry functionality
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  
+  .error-icon {
+    font-size: 48px;
+    color: #FF6A4D;
+    margin-bottom: 20px;
+  }
+  
+  .error-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .error-message {
+    font-size: 16px;
+    margin-bottom: 30px;
+    max-width: 400px;
+  }
+  
+  .retry-button {
+    @include glass-morphism(0.3);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    color: #FF6A4D;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba(255, 106, 77, 0.2);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Accessibility improvements
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Skip link for keyboard navigation
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #FF6A4D;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  z-index: 1000;
+  transition: top 0.3s ease;
+  
+  &:focus {
+    top: 6px;
+  }
+}
+
+// Enhanced focus indicators
+.focus-ring {
+  &:focus {
+    outline: 2px solid #FF6A4D;
+    outline-offset: 2px;
+    box-shadow: 
+      0 0 0 4px rgba(255, 106, 77, 0.3),
+      0 0 0 2px rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Improved button states
+.btn-enhanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+  }
+  
+  &:active::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+// Tooltip enhancements
+.tooltip-enhanced {
+  position: relative;
+  
+  &::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  &:hover::after,
+  &:hover::before {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Enhanced scroll behavior
+.smooth-scroll {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; // Account for fixed navigation
+}
+
+// Intersection observer animations
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Scale animation for cards
+.scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &.in-view {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Responsive typography
+.responsive-text {
+  font-size: clamp(14px, 2vw, 18px);
+  line-height: 1.6;
+}
+
+.responsive-title {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.responsive-subtitle {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 600;
+  line-height: 1.4;
+}

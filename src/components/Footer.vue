@@ -1,10 +1,12 @@
 <template>
   <div id="footer">
     <div class="container">
-      <h3 class="footertext">Copyright © 2022 SattPaing</h3>
+      <p class="footertext">
+        © {{ currentYear }} Satt Paing. All rights reserved.
+      </p>
     </div>
-    <div class="totop" @click="Totop">
-      <v-icon large color="#FF6A4D">mdi-chevron-up</v-icon>
+    <div class="totop" @click="Totop" title="Back to top">
+      <v-icon color="#FF6A4D">mdi-chevron-up</v-icon>
     </div>
   </div>
 </template>

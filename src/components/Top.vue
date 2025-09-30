@@ -10,7 +10,9 @@
           <v-btn text class="btnlink" @click="click('experience')"
             >Experience</v-btn
           >
-          <v-btn text class="btnlink" @click="click('project')">Projects</v-btn>
+          <v-btn text class="btnlink" @click="click('projects')"
+            >Projects</v-btn
+          >
           <v-btn text class="btnlink" @click="click('contact')">Contact</v-btn>
           <v-btn text class="btnlink" @click="downloadfile">Resume</v-btn>
         </v-app-bar>

@@ -2,13 +2,14 @@
 #footer{
     width: 100%;
     background-color: #303030;
-    padding: 80px;
+    padding: 40px 20px;
     font-family: $mainfont;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     @media (max-width:961px){
-        padding: 50px 0px 50px 0px;
+        padding: 30px 20px;
     }
     .container{
         width: $globalwidth;
@@ -16,29 +17,43 @@
             width: 100%;
         }
         .footertext{
-            color: white;
+            color: rgba(255, 255, 255, 0.8);
             text-align: center;
+            font-size: 14px;
+            font-weight: 400;
+            margin: 0;
         }
     }
     .totop{
         position: absolute;
         right: 30px;
-        bottom: 30px;
-        background-color: #303030;
+        bottom: 20px;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         width: 50px;
         height: 50px;
         border-radius: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid white;
+        border: 1px solid rgba(255, 106, 77, 0.3);
         cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background: rgba(255, 106, 77, 0.2);
+            border-color: #FF6A4D;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 106, 77, 0.3);
+        }
+        
         @media (max-width:961px){
             right: 20px;
-            bottom: 20px;
-            width: 40px;
-            height: 40px;
-            border-radius: 40px;
+            bottom: 15px;
+            width: 45px;
+            height: 45px;
+            border-radius: 45px;
         }
     }
 }

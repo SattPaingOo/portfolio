@@ -1,4 +1,5 @@
 @import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/_animations.scss';
 
 #contact{
     width: 100%;
@@ -20,13 +21,7 @@
         }
         
         .ftitle{
-            font-size: $titlesize;
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 50px;
-            border-bottom: 1px solid black;
-            padding-bottom: 10px;
-            color: #DADADA;
+            @include modern-title;
         }
 
         // Contact Grid
