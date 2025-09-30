@@ -36,18 +36,353 @@ html{
         display : flex;
         justify-content: center;
         align-items: center;
-        background-image: url('../assets/img/top-background.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: calc(100% + 50px);
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+        background-size: 200% 200%;
+        animation: backgroundShift 15s ease-in-out infinite;
         height: calc( 100vh - 0px );
         min-height: 800px;
         font-family: $mainfont;
+        position: relative;
+        overflow: hidden;
+        
+        // Add subtle glow effect around the edges
+        &::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, 
+                transparent 30%, 
+                rgba(255, 106, 77, 0.02) 50%, 
+                transparent 70%
+            );
+            animation: ambientGlow 30s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes ambientGlow {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(1) rotate(0deg);
+            }
+            33% {
+                opacity: 0.8;
+                transform: scale(1.1) rotate(120deg);
+            }
+            66% {
+                opacity: 0.3;
+                transform: scale(0.9) rotate(240deg);
+            }
+        }
+        
+        @keyframes backgroundShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        // Animated Background Elements
+        .animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            will-change: transform; // Optimize for animations
+            transform: translateZ(0); // Enable hardware acceleration
+            
+            // Dynamic overlay for depth
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: 
+                    radial-gradient(circle at 20% 30%, rgba(255, 106, 77, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(255, 143, 122, 0.06) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 80%, rgba(255, 106, 77, 0.04) 0%, transparent 50%);
+                animation: overlayShift 25s ease-in-out infinite;
+                z-index: 1;
+                will-change: opacity, transform;
+            }
+            
+            @keyframes overlayShift {
+                0%, 100% {
+                    opacity: 0.7;
+                    transform: scale(1) rotate(0deg);
+                }
+                33% {
+                    opacity: 1;
+                    transform: scale(1.05) rotate(1deg);
+                }
+                66% {
+                    opacity: 0.8;
+                    transform: scale(0.98) rotate(-1deg);
+                }
+            }
+            
+            // Floating geometric shapes inspired by logo
+            .floating-shape {
+                position: absolute;
+                border-radius: 50% 40% 60% 30%;
+                background: linear-gradient(45deg, rgba(255, 106, 77, 0.15), rgba(255, 143, 122, 0.1));
+                backdrop-filter: blur(1px);
+                animation: floatAndRotate 20s ease-in-out infinite;
+                will-change: transform, opacity;
+                transform: translateZ(0); // Hardware acceleration
+                
+                &.shape-1 {
+                    width: 300px;
+                    height: 200px;
+                    top: 10%;
+                    left: -10%;
+                    animation-delay: 0s;
+                    animation-duration: 18s;
+                }
+                
+                &.shape-2 {
+                    width: 250px;
+                    height: 180px;
+                    top: 60%;
+                    right: -15%;
+                    animation-delay: 6s;
+                    animation-duration: 22s;
+                    border-radius: 60% 30% 40% 70%;
+                }
+                
+                &.shape-3 {
+                    width: 180px;
+                    height: 120px;
+                    top: 30%;
+                    left: 70%;
+                    animation-delay: 12s;
+                    animation-duration: 16s;
+                    border-radius: 30% 70% 60% 40%;
+                }
+            }
+            
+            // Flowing lines inspired by logo curves
+            .flowing-line {
+                position: absolute;
+                width: 3px;
+                background: linear-gradient(to bottom, 
+                    transparent, 
+                    rgba(255, 106, 77, 0.6), 
+                    rgba(255, 143, 122, 0.4), 
+                    transparent
+                );
+                border-radius: 50px;
+                animation: flowingMotion 25s ease-in-out infinite;
+                will-change: transform, opacity;
+                transform: translateZ(0);
+                
+                &.line-1 {
+                    height: 400px;
+                    top: -100px;
+                    left: 20%;
+                    animation-delay: 0s;
+                    transform: rotate(15deg);
+                }
+                
+                &.line-2 {
+                    height: 500px;
+                    top: -150px;
+                    right: 30%;
+                    animation-delay: 8s;
+                    transform: rotate(-20deg);
+                }
+                
+                &.line-3 {
+                    height: 300px;
+                    top: 50%;
+                    left: 60%;
+                    animation-delay: 15s;
+                    transform: rotate(10deg);
+                }
+            }
+            
+            // Small animated particles
+            .particle {
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                background: radial-gradient(circle, rgba(255, 106, 77, 0.8), transparent);
+                border-radius: 50%;
+                animation: particleFloat 30s linear infinite;
+                
+                &.particle-1 {
+                    top: 20%;
+                    left: 15%;
+                    animation-delay: 0s;
+                }
+                
+                &.particle-2 {
+                    top: 40%;
+                    right: 20%;
+                    animation-delay: 6s;
+                }
+                
+                &.particle-3 {
+                    top: 70%;
+                    left: 40%;
+                    animation-delay: 12s;
+                }
+                
+                &.particle-4 {
+                    top: 25%;
+                    right: 40%;
+                    animation-delay: 18s;
+                }
+                
+                &.particle-5 {
+                    top: 80%;
+                    right: 10%;
+                    animation-delay: 24s;
+                }
+            }
+            
+            // Large gradient orbs for ambient lighting
+            .gradient-orb {
+                position: absolute;
+                border-radius: 50%;
+                background: radial-gradient(circle, 
+                    rgba(255, 106, 77, 0.1) 0%, 
+                    rgba(255, 143, 122, 0.05) 30%, 
+                    transparent 70%
+                );
+                animation: orbPulse 20s ease-in-out infinite;
+                
+                &.orb-1 {
+                    width: 400px;
+                    height: 400px;
+                    top: -200px;
+                    left: -200px;
+                    animation-delay: 0s;
+                }
+                
+                &.orb-2 {
+                    width: 300px;
+                    height: 300px;
+                    bottom: -150px;
+                    right: -150px;
+                    animation-delay: 10s;
+                }
+                
+                &.orb-3 {
+                    width: 350px;
+                    height: 350px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    animation-delay: 15s;
+                }
+            }
+        }
+        
+        @keyframes floatAndRotate {
+            0%, 100% {
+                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+                opacity: 0.7;
+            }
+            25% {
+                transform: translateX(50px) translateY(-30px) rotate(90deg) scale(1.1);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateX(30px) translateY(40px) rotate(180deg) scale(0.9);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translateX(-20px) translateY(-20px) rotate(270deg) scale(1.05);
+                opacity: 0.8;
+            }
+        }
+        
+        @keyframes flowingMotion {
+            0%, 100% {
+                transform: translateY(0) rotate(var(--initial-rotation, 15deg)) scaleY(1);
+                opacity: 0.6;
+            }
+            33% {
+                transform: translateY(-80px) rotate(calc(var(--initial-rotation, 15deg) + 10deg)) scaleY(1.2);
+                opacity: 0.9;
+            }
+            66% {
+                transform: translateY(60px) rotate(calc(var(--initial-rotation, 15deg) - 5deg)) scaleY(0.8);
+                opacity: 0.7;
+            }
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) translateX(20px) scale(1);
+            }
+            50% {
+                transform: translateY(50vh) translateX(-30px) scale(1.2);
+                opacity: 0.8;
+            }
+            90% {
+                transform: translateY(10vh) translateX(40px) scale(0.8);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes orbPulse {
+            0%, 100% {
+                transform: scale(1) translate(var(--translate-x, 0), var(--translate-y, 0));
+                opacity: 0.4;
+            }
+            33% {
+                transform: scale(1.1) translate(var(--translate-x, 0), var(--translate-y, 0));
+                opacity: 0.6;
+            }
+            66% {
+                transform: scale(0.9) translate(var(--translate-x, 0), var(--translate-y, 0));
+                opacity: 0.3;
+            }
+        }
+        
         @media (max-width:1350px){
             display: none;
         }
         .container{
             width: $globalwidth;
+            position: relative;
+            z-index: 2;
+            
+            // Add subtle hover effects to enhance interactivity
+            &:hover ~ .animated-background {
+                .floating-shape {
+                    animation-duration: 12s; // Speed up slightly on hover
+                }
+                
+                .flowing-line {
+                    opacity: 0.8;
+                }
+                
+                .gradient-orb {
+                    transform: scale(1.05);
+                }
+            }
             padding-top: 64px;
             display: flex;
             flex-wrap: wrap;
@@ -529,11 +864,66 @@ html{
     }
     #phonetop{
         height: 450px;
-        background-image: url('../assets/img/top-background.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+        background-size: 200% 200%;
+        animation: backgroundShift 15s ease-in-out infinite;
         font-family: $mainfont;
+        position: relative;
+        overflow: hidden;
+        
+        // Mobile animated background (simplified)
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(255, 106, 77, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(255, 143, 122, 0.08) 0%, transparent 50%);
+            animation: mobileOverlayShift 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        // Add some floating particles for mobile
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255, 106, 77, 0.4) 2px, transparent 2px),
+                radial-gradient(circle at 80% 80%, rgba(255, 143, 122, 0.3) 1px, transparent 1px),
+                radial-gradient(circle at 40% 70%, rgba(255, 106, 77, 0.2) 1px, transparent 1px);
+            background-size: 150px 150px, 200px 200px, 180px 180px;
+            animation: mobileParticles 25s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        @keyframes mobileOverlayShift {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.1) rotate(2deg);
+            }
+        }
+        
+        @keyframes mobileParticles {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-50px) rotate(360deg);
+            }
+        }
         @media (min-width:1350px){
             display: none;
         }
@@ -541,13 +931,15 @@ html{
             font-size: 25px;
         }
         .mobile-nav {
-            background: rgba(0, 0, 0, 0.2) !important;
+            background: rgba(0, 0, 0, 0.3) !important;
             backdrop-filter: blur(20px) !important;
             -webkit-backdrop-filter: blur(20px) !important;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+            border-bottom: 1px solid rgba(255, 106, 77, 0.2) !important;
             margin: 10px 20px !important;
             border-radius: 15px !important;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+            position: relative !important;
+            z-index: 10 !important;
         }
         .drawer{
             background: rgba(0, 0, 0, 0.2) !important;
@@ -598,14 +990,26 @@ html{
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            z-index: 5;
             .img{
                 width: 180px;
                 height: 180px;
                 border-radius: 180px;
-                border:1px solid rgba(255,255,255,0.7);
-                box-shadow: 0 5px 10px rgba(9,0,0,0.5);
+                border: 2px solid rgba(255, 106, 77, 0.6);
+                box-shadow: 
+                    0 5px 10px rgba(9,0,0,0.5),
+                    0 0 20px rgba(255, 106, 77, 0.3);
                 background-color: rgba(0, 0, 0, 0.5);
                 margin-top: 120px;
+                transition: all 0.3s ease;
+                
+                &:hover {
+                    transform: scale(1.05);
+                    box-shadow: 
+                        0 8px 15px rgba(9,0,0,0.6),
+                        0 0 30px rgba(255, 106, 77, 0.5);
+                }
             }
             .name{
                 text-align: center;

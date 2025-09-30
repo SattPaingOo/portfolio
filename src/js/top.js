@@ -3,6 +3,8 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
+    mouseX: 0,
+    mouseY: 0,
     biography: {
       introduction:
         "Hi, I am Satt Paing, currently working as a Front-End Developer at Genki System Japan. I have a Diploma of IT from Metro IT & Japanese Language Center and Certificate of ITPEC (FE).",
@@ -100,6 +102,37 @@ export default {
     ],
   }),
   methods: {
+    handleMouseMove(event) {
+      if (window.innerWidth > 1350) {
+        this.mouseX = (event.clientX / window.innerWidth) * 100;
+        this.mouseY = (event.clientY / window.innerHeight) * 100;
+
+        // Apply subtle parallax effect to background elements
+        const shapes = document.querySelectorAll(".floating-shape");
+        const lines = document.querySelectorAll(".flowing-line");
+        const orbs = document.querySelectorAll(".gradient-orb");
+
+        shapes.forEach((shape, index) => {
+          const factor = (index + 1) * 0.02;
+          const moveX = (this.mouseX - 50) * factor;
+          const moveY = (this.mouseY - 50) * factor;
+          shape.style.transform += ` translate(${moveX}px, ${moveY}px)`;
+        });
+
+        lines.forEach((line, index) => {
+          const factor = (index + 1) * 0.01;
+          const moveX = (this.mouseX - 50) * factor;
+          line.style.transform += ` translateX(${moveX}px)`;
+        });
+
+        orbs.forEach((orb, index) => {
+          const factor = (index + 1) * 0.005;
+          const moveX = (this.mouseX - 50) * factor;
+          const moveY = (this.mouseY - 50) * factor;
+          orb.style.transform += ` translate(${moveX}px, ${moveY}px)`;
+        });
+      }
+    },
     isMobile() {
       if (
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -126,5 +159,15 @@ export default {
       link.click();
       document.body.removeChild(link);
     },
+  },
+  mounted() {
+    // Add mouse move listener for interactive background
+    if (window.innerWidth > 1350) {
+      window.addEventListener("mousemove", this.handleMouseMove);
+    }
+  },
+  beforeDestroy() {
+    // Clean up event listener
+    window.removeEventListener("mousemove", this.handleMouseMove);
   },
 };

@@ -1,6 +1,23 @@
 <template>
   <div id="top">
-    <div id="pctop">
+    <div id="pctop" @mousemove="handleMouseMove">
+      <!-- Animated Background Elements -->
+      <div class="animated-background">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="flowing-line line-1"></div>
+        <div class="flowing-line line-2"></div>
+        <div class="flowing-line line-3"></div>
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+      </div>
       <div class="container">
         <v-app-bar fixed elevation="5" class="nav" dark>
           <v-toolbar-title class="textbox">Satt Paing</v-toolbar-title>
