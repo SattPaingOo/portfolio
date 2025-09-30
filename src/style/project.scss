@@ -1,20 +1,24 @@
 @import '@/assets/scss/_variables.scss';
+
 #project{
     width: 100%;
     background-color: #303030;
+    color: #DADADA;
     padding: 80px;
     font-family: $mainfont;
     display: flex;
     align-items: center;
     justify-content: center;
     @media (max-width:961px){
-        padding: 50px 0px 50px 0px;
+        padding: 50px 20px 50px 20px;
     }
+    
     .container{
         width: $globalwidth;
         @media (max-width:961px){
             width: 100%;
         }
+        
         .ftitle{
             font-size: $titlesize;
             text-align: center;
@@ -22,6 +26,256 @@
             margin-bottom: 30px;
             border-bottom: 1px solid black;
             padding-bottom: 10px;
+            color: #DADADA;
+        }
+
+        // Filter Buttons
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            
+            .filter-btn {
+                border-color: #FF6A4D !important;
+                color: #DADADA !important;
+                transition: all 0.3s ease;
+                
+                &:hover {
+                    background-color: rgba(255, 106, 77, 0.1) !important;
+                }
+                
+                &.active {
+                    background-color: #FF6A4D !important;
+                    color: white !important;
+                }
+            }
+        }
+
+        // Projects Grid
+        .projects-grid {
+            margin-top: 30px;
+        }
+
+        .project-col {
+            padding: 15px;
+            @media (max-width:961px){
+                padding: 10px;
+            }
+        }
+
+        // Project Card
+        .project-card {
+            background-color: #404040;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #555;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+                border-color: #FF6A4D;
+            }
+
+            .project-image {
+                position: relative;
+                height: 200px;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover img {
+                    transform: scale(1.05);
+                }
+
+                .project-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.7);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+
+                    .project-actions {
+                        display: flex;
+                        gap: 10px;
+
+                        .action-btn {
+                            background-color: #FF6A4D !important;
+                            transition: all 0.3s ease;
+
+                            &:hover {
+                                background-color: #e55a47 !important;
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                }
+
+                &:hover .project-overlay {
+                    opacity: 1;
+                }
+            }
+
+            .project-content {
+                padding: 20px;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+
+                .project-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    margin-bottom: 12px;
+                    gap: 10px;
+
+                    .project-title {
+                        font-size: 18px;
+                        font-weight: bold;
+                        margin: 0;
+                        color: #DADADA;
+                        flex-grow: 1;
+                        line-height: 1.3;
+                    }
+
+                    .status-chip {
+                        font-size: 11px !important;
+                        height: 24px !important;
+                        flex-shrink: 0;
+                    }
+                }
+
+                .project-description {
+                    color: #B0B0B0;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    margin-bottom: 15px;
+                    flex-grow: 1;
+                }
+
+                .technologies {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 6px;
+                    margin-bottom: 15px;
+
+                    .tech-chip {
+                        font-size: 11px !important;
+                        height: 22px !important;
+                        border-color: #FF6A4D !important;
+                        color: #FF6A4D !important;
+                        
+                        &:hover {
+                            background-color: rgba(255, 106, 77, 0.1) !important;
+                        }
+                    }
+                }
+
+                .project-category {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-size: 13px;
+                    color: #999;
+                    margin-top: auto;
+
+                    span {
+                        color: #B0B0B0;
+                    }
+                }
+            }
+        }
+
+        // No projects message
+        .no-projects {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+
+            h3 {
+                margin: 20px 0 10px 0;
+                color: #DADADA;
+            }
+
+            p {
+                color: #B0B0B0;
+                font-size: 14px;
+            }
+        }
+
+        // Reveal animation (matching skills section)
+        .reveal {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        // Responsive adjustments
+        @media (max-width: 961px) {
+            .project-card {
+                .project-content {
+                    padding: 15px;
+
+                    .project-title {
+                        font-size: 16px;
+                    }
+
+                    .project-description {
+                        font-size: 13px;
+                    }
+                }
+            }
+
+            .filter-container {
+                gap: 8px;
+                margin-bottom: 30px;
+
+                .filter-btn {
+                    font-size: 12px !important;
+                }
+            }
+        }
+
+        @media (max-width: 600px) {
+            .project-col {
+                padding: 8px;
+            }
+
+            .project-card {
+                .project-image {
+                    height: 150px;
+                }
+
+                .project-content {
+                    padding: 12px;
+                }
+            }
         }
     }
 }
