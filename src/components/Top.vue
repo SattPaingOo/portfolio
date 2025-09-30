@@ -81,7 +81,7 @@
       </div>
     </div>
     <div id="phonetop">
-      <v-app-bar fixed color="#212024" dark>
+      <v-app-bar fixed class="mobile-nav" dark>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
         <v-toolbar-title class="textbox">Satt Paing</v-toolbar-title>
       </v-app-bar>
