@@ -23,8 +23,6 @@
               class="img"
               lazy-src="../assets/img/sattpaing.png"
             ></v-img>
-            <div class="name">Satt Paing</div>
-            <div class="jobtitle">Senior Web Developer</div>
           </div>
         </div>
         <div class="right">

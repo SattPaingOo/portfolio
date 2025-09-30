@@ -43,6 +43,32 @@
             @include modern-title;
         }
 
+        // Project Disclaimer
+        .project-disclaimer {
+            margin: $spacing-2xl 0;
+            
+            .disclaimer-alert {
+                background: rgba(255, 255, 255, 0.05) !important;
+                border-left: 4px solid $accent-color !important;
+                border-radius: 8px;
+                
+                .disclaimer-content {
+                    color: $text-primary;
+                    
+                    strong {
+                        color: $accent-color;
+                        font-size: 1.1rem;
+                    }
+                    
+                    p {
+                        opacity: 0.9;
+                        line-height: 1.6;
+                        margin-top: 8px;
+                    }
+                }
+            }
+        }
+
         // Filter Buttons
         .filter-container {
             display: flex;

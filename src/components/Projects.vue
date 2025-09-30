@@ -3,6 +3,27 @@
     <div class="container">
       <div class="ftitle">Projects</div>
 
+      <!-- Project Disclaimer -->
+      <div class="project-disclaimer">
+        <v-alert
+          type="info"
+          border="left"
+          colored-border
+          elevation="2"
+          class="disclaimer-alert"
+        >
+          <v-icon slot="prepend" color="info">mdi-information</v-icon>
+          <div class="disclaimer-content">
+            <strong>Personal Projects Showcase</strong>
+            <p class="mb-0 mt-2">
+              The projects displayed here are my personal projects. Work-related
+              projects are not listed due to company policy and privacy
+              considerations.
+            </p>
+          </div>
+        </v-alert>
+      </div>
+
       <!-- Filter Buttons -->
       <div class="filter-container">
         <v-btn
@@ -110,15 +131,7 @@ export default {
     return {
       ...projectData.data(),
       selectedCategory: "All",
-      categories: [
-        "All",
-        "Web Application",
-        "Productivity",
-        "Utility",
-        "Analytics",
-        "Portfolio",
-        "Social Platform",
-      ],
+      categories: ["All", "3D/WebGL", "Educational", "Web Design"],
     };
   },
   computed: {
